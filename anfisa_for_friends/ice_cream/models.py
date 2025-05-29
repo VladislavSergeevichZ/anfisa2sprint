@@ -47,6 +47,8 @@ class IceCream(PublishedModel):
     is_on_main = models.BooleanField('На главную', default=False)
     title = models.CharField('Название', max_length=256)
     description = models.TextField('Описание')
+    price = models.DecimalField(max_digits=5, decimal_places=2)
+    output_order = models.PositiveSmallIntegerField('Порядок отображения', default=100)
     wrapper = models.OneToOneField(
         Wrapper,
         on_delete=models.SET_NULL,
@@ -64,6 +66,7 @@ class IceCream(PublishedModel):
     toppings = models.ManyToManyField(Topping, verbose_name='Топпинги')
 
     class Meta:
+        ordering = ('output_order', 'title')
         verbose_name = 'мороженое'
         verbose_name_plural = 'Разновидностей мороженого'
 
