@@ -40,8 +40,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 admin.site.register(Topping)
 admin.site.register(Wrapper)
-admin.site.register(IceCream)
-admin.site.register(Category)
 admin.site.register(IceCream, IceCreamAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.empty_value_display = 'Не задано'
